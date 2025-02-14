@@ -47,7 +47,7 @@ function App() {
   const [isRunning, setIsRunning] = useState(false);
   const [danceArry, setDanceArry] = useState<string[]>([])
   const clapSoundRef = useRef(new Audio('/clap.mp3'));
-  const [bg, setBg] = useState('bg-yellow-200')
+  const [bg, setBg] = useState('yellow')
 
   useEffect(() => {
     if (isRunning && actualStep === 1) {
@@ -71,46 +71,46 @@ function App() {
       <>
         <h1 className='text-center font-black text-2xl p-3'>Configuracion</h1>
         <div className='flex md:flex-row flex-col items-center justify-around'>
-          <div className='form-group flex flex-col items-center mb-3 md:mb-0 md:me-3'>
+          <div className='form-group flex flex-col items-center mb-3 md:mb-0 md:me-10'>
             <label htmlFor='baseDuration'
               className='mb-1'>Duracion de la base (ms)</label>
             <input
               type='number'
-              className='border rounded px-2 w-32'
+              className='border rounded px-2 w-32 text-center'
               id='baseDuration'
               value={baseDuration}
               step={1000}
               onChange={(e) => setBaseDuration(parseInt(e.target.value))}
             />
           </div>
-          <div className='form-group flex flex-col items-center mb-3 md:mb-0 md:me-3'>
+          <div className='form-group flex flex-col items-center mb-3 md:mb-0 md:me-10'>
             <label htmlFor='steps'
               className='mb-1'>Numero de pasos a practicar</label>
             <input
               type='number'
-              className='border rounded px-2 w-32'
+              className='border rounded px-2 w-32 text-center'
               id='steps'
               value={danceStep}
               onChange={(e) => setDanseStep(parseInt(e.target.value))}
             />
           </div>
-          <div className='form-group flex flex-col items-center mb-3 md:mb-0 md:me-3'>
+          <div className='form-group flex flex-col items-center mb-3 md:mb-0 md:me-10'>
             <label htmlFor='repetitions'
               className='mb-1'>Numero de repeticiones</label>
             <input
               type='number'
-              className='border rounded px-2 w-32'
+              className='border rounded px-2 w-32 text-center'
               id='repetitions'
               value={repetitions}
               onChange={(e) => setRepetitions(parseInt(e.target.value))}
             />
           </div>
-          <div className='form-group flex flex-col items-center mb-3 md:mb-0 md:me-3'>
+          <div className='form-group flex flex-col items-center mb-3 md:mb-0 md:me-10'>
             <label htmlFor='dance'
               className='mb-1'>Genero de baile</label>
             <select
               id='dance'
-              className='border rounded px-2 w-32'
+              className='border rounded px-2 w-32 text-center custom-blue'
               value={dance}
               onChange={(e) => setDance(e.target.value)}
             >
@@ -120,7 +120,7 @@ function App() {
             </select>
           </div>
         </div>
-        <button className='mt-4 p-2 bg-blue-500 text-white rounded' onClick={() => startDancePractice()}>
+        <button className='mt-4 p-2 color-primary border text-white rounded' onClick={() => startDancePractice()}>
           Empezar
         </button>
       </>
@@ -162,7 +162,7 @@ function App() {
       <>
         <h1 className='text-center font-black text-2xl p-3'>{dance}</h1>
         <div className='flex flex-col items-center'>
-          <div className={`flex justify-center items-center p-5 pb-7 font-bold text-6xl rounded-full ${bg} `}>
+          <div className={`flex justify-center items-center p-5 pb-7 font-bold text-6xl rounded-full  ${bg} `}>
             {showCounter()}
           </div>
           <h2 className='text-lg pt-3'>Paso a seguir</h2>
@@ -186,10 +186,10 @@ function App() {
           ))}
         </div>
         <div className='flex justify-center items-center space-x-3'>
-          <button className='mt-4 p-2 bg-blue-500 text-white rounded' onClick={() => setActualStep(0)}>
+          <button className='mt-4 p-2 color-primary border text-white rounded' onClick={() => setActualStep(0)}>
             Volver a configuracion
           </button>
-          <button className='mt-4 p-2 bg-blue-500 text-white rounded' onClick={() => startDancePractice()}>
+          <button className='mt-4 p-2 color-primary border text-white rounded' onClick={() => startDancePractice()}>
             Empezar de nuevo (nuevos pasos)
           </button>
         </div>
@@ -202,12 +202,12 @@ function App() {
     setDanceArry(danceSteps)
     setActualStep(1)
     setCounter(4)
-    setBg('bg-yellow-200')
+    setBg('yellow')
     setRealStepDuration(baseDuration / 8)
     setRealRepetitions(repetitions * danceStep * 8)
     setIsRunning(true);
     setTimeout(() => {
-      setBg('bg-green-500')
+      setBg('green')
       setCounter(0)
       setIsRunning(true);
     }, (baseDuration / 8)*4)
@@ -227,7 +227,7 @@ function App() {
   }
 
   return (
-    <div className='flex flex-col justify-center items-center h-screen'>
+    <div className='flex flex-col justify-center items-center h-screen custom-blue'>
       {main()}
     </div>
   )

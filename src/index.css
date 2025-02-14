@@ -3,3 +3,23 @@
 @theme {
   --color-mint-500: oklch(0.72 0.11 178);
 }
+
+body {
+  @apply text-white;
+}
+
+.custom-blue{
+  background-color: #172554;
+}
+
+.color-primary {
+  background-color: #1E40AF;
+}
+
+.yellow{
+  background-color: #FACC15;
+}
+
+.green{
+  background-color: #16A34A;
+}
